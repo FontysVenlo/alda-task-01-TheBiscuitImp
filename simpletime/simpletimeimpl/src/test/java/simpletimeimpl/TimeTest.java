@@ -9,6 +9,7 @@ import simpletimeapi.AbstractAPFactory;
  * @author lukas
  */
 public class TimeTest {
+    
     ServiceFinder sf = new ServiceFinder();
     AbstractAPFactory factory = sf.getFactory();
     /*
@@ -21,7 +22,7 @@ public class TimeTest {
         Object time3 = factory.createTime(1,30);
         
         assertThat(time1.getHours == 1);
-        assertThat(time2.getMinutes == 1);
+        assertThat(time2.getMinutes == 10);
         assertThat(time3.asMinutes == 90);
         
     }
