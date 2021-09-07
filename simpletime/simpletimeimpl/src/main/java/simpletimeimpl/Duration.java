@@ -5,7 +5,7 @@ package simpletimeimpl;
  *
  * @author lukas
  */
-public class Duration extends TimeyWimey{
+public class Duration{
     private int hours;
     private int minutes;
     
@@ -20,24 +20,24 @@ public class Duration extends TimeyWimey{
         minutes = pMinutes;
     }
     
-    /*
-    @Override
+    
+    //@Override
     public int getHours() {
         return hours;
     }
     
-    @Override
+    //@Override
     public int getMinutes() {
         return minutes;
     }
     
-    @Override
+    //@Override
     public int asMinutes() {
         int tempMinutes = 0;
         tempMinutes = minutes + hours *60;
         return tempMinutes;
     }
-    */
+    
     
     public Duration plus(Duration otherDuration){
         int temp = otherDuration.getMinutes()+minutes;

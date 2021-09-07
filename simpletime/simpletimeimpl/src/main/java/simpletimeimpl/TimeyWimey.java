@@ -6,7 +6,7 @@ package simpletimeimpl;
  * @author lukas
  */
 public abstract class TimeyWimey implements Comparable<TimeyWimey> {
-    private int hours;
+    /*private int hours;
     private int minutes;
     
     public int getHours() {
@@ -25,5 +25,5 @@ public abstract class TimeyWimey implements Comparable<TimeyWimey> {
      
     public int compareTo(TimeyWimey otherTimey){
         return Integer.compare(this.asMinutes(), otherTimey.asMinutes());
-    }
+    }*/
 }
