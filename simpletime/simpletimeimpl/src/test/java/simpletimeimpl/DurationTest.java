@@ -35,4 +35,5 @@ public class DurationTest {
     /*
         something with the comparison with duration
     */
+    public void testCompareTo
 }
