@@ -5,7 +5,7 @@ package simpletimeimpl;
  *
  * @author lukas
  */
-public abstract class Time implements Comparable<Time> {
+public class Time extends TimeyWimey{
     
     private int hours;
     private int minutes;
@@ -20,13 +20,16 @@ public abstract class Time implements Comparable<Time> {
         }
     }
     
+    /*
+    @Override
     public int getHours() {
         return hours;
     }
-    
+    @Override
     public int getMinutes() {
         return minutes;
     }
+    */
     
     public boolean isBefore(Time pTime) {
         if(this.compareTo(pTime)==1){
@@ -47,6 +50,10 @@ public abstract class Time implements Comparable<Time> {
     public Time addTime(Time pTime) {
         hours += pTime.getHours();
         minutes += pTime.getMinutes();
+        while (minutes>=60){
+            minutes -= 60;
+            hours++;
+        }
         return this;
     }
     
@@ -64,11 +71,13 @@ public abstract class Time implements Comparable<Time> {
         return this;
     }
     
+    /*
+    @Override
     public int asMinutes() {
-        int tempMinutes = 0;
-        tempMinutes = minutes + hours *60;
+        int tempMinutes = minutes + hours *60;
         return tempMinutes;
     }
+    */
     
     public Duration untill(Time pTime){
         
@@ -77,9 +86,9 @@ public abstract class Time implements Comparable<Time> {
         return new Duration(dHours,dMinutes);
     }
     
-    @Override 
-    public int compareTo(Time otherTime){
+    /*@Override 
+    public int compareTo(TimeyWimey otherTime){
         return Integer.compare(this.asMinutes(), otherTime.asMinutes());
-    }
+    }*/
     
 }
