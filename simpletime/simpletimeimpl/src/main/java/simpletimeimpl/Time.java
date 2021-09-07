@@ -1,11 +1,12 @@
 
 package simpletimeimpl;
+//import simpletimeapi.APTime;
 
 /**
  *
  * @author lukas
  */
-public class Time{
+public class Time /*implements simpletimeapi.APTime*/{
     
     private int hours;
     private int minutes;

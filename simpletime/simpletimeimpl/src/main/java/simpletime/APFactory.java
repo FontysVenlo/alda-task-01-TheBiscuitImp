@@ -7,6 +7,8 @@ import simpletimeapi.AbstractAPFactory;
 import simpletimeapi.Duration;
 import simpletimeapi.Time;
 //TODO adapt imports if required
+//import simpletimeimpl.Time;
+//import simpletimeimpl.Duration;
 
 
 /**
