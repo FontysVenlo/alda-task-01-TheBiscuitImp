@@ -107,7 +107,8 @@ public class TimeTest {
         Time time1 = new Time(1,0);
         Time time4 = new Time(0,30);
         
-        assertThat(time1.isBefore(time4)).isEqualTo(false);
+        //assertThat(time1.isBefore(time4)).isEqualTo(false);
+        assertThat(time1.isBefore(time4)).isFalse();
     } 
     
     @Test
@@ -115,7 +116,8 @@ public class TimeTest {
         Time time1 = new Time(1,0);
         Time time2 = new Time(1,30);
         
-        assertThat(time1.isBeforeOrEqual(time2)).isEqualTo(true);
+        //assertThat(time1.isBeforeOrEqual(time2)).isEqualTo(true);
+        assertThat(time1.isBeforeOrEqual(time2)).isTrue();
     } 
     
     @Test
@@ -123,7 +125,8 @@ public class TimeTest {
         Time time1 = new Time(1,0);
         Time time3 = new Time(1,0);
         
-        assertThat(time1.isBeforeOrEqual(time3)).isEqualTo(true);
+        //assertThat(time1.isBeforeOrEqual(time3)).isEqualTo(true);
+        assertThat(time1.isBeforeOrEqual(time3)).isTrue();
     }
     
     @Test
@@ -131,7 +134,8 @@ public class TimeTest {
         Time time1 = new Time(1,0);
         Time time4 = new Time(0,30);
         
-        assertThat(time1.isBeforeOrEqual(time4)).isEqualTo(false);
+        //assertThat(time1.isBeforeOrEqual(time4)).isEqualTo(false);
+        assertThat(time1.isBeforeOrEqual(time4)).isFalse();
     } 
     /*
         test for time between times
