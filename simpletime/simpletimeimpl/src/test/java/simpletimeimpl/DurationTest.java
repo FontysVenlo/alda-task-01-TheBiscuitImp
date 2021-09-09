@@ -45,6 +45,13 @@ public class DurationTest {
         assertThat(duration3.asMinutes()).isEqualTo(90);
     }
     
+    @Test
+    public void testDuration4(){
+        Duration duration4 = new APDuration(30);
+        
+        assertThat(duration4.getMinutes()).isEqualTo(30);
+    }
+    
     /* 
         test if the duration is returned correctly when the duration is put in as 0 hours and many minutes
     */
