@@ -3,7 +3,8 @@ package simpletimeimpl;
 
 import static org.assertj.core.api.Assertions.*;
 import org.junit.jupiter.api.Test;
-//import simpletimeapi.AbstractAPFactory;
+import simpletimeapi.Time;
+import simpletimeapi.Duration;
 
 /**
  *
@@ -19,7 +20,7 @@ public class TimeTest {
     @Test
     public void testTime() {
         
-        Time time1 = new Time(1,0);
+        Time time1 = new APTime(1,0);
         //Time time2 = new Time(0,10);
         //Time time3 = new Time(1,30);
         
@@ -31,14 +32,14 @@ public class TimeTest {
     
     public void testTime2() {
         
-        Time time2 = new Time(0,10);
+        Time time2 = new APTime(0,10);
         
         assertThat(time2.getMinutes()).isEqualTo(10);
     }
     
     public void testTime3() {
         
-        Time time3 = new Time(1,30);
+        Time time3 = new APTime(1,30);
         
         assertThat(time3.asMinutes()).isEqualTo(90);
     }
@@ -48,7 +49,7 @@ public class TimeTest {
     */
     @Test
     public void testNegativeMinutes() {
-        Time time1 = new Time(1,-10);
+        Time time1 = new APTime(1,-10);
         //Time time2 = new Time(2,-30);
         
         assertThat(time1.getMinutes()).isEqualTo(50);
@@ -57,7 +58,7 @@ public class TimeTest {
     
     @Test
     public void testNegativeMinutes2() {
-        Time time2 = new Time(2,-30);
+        Time time2 = new APTime(2,-30);
         
         assertThat(time2.asMinutes()).isEqualTo(90);
     }
@@ -67,7 +68,7 @@ public class TimeTest {
     */
     @Test
     public void testAddTime() {
-        Time time1 = new Time(1,30);
+        Time time1 = new APTime(1,30);
       /*Time time2 = new Time(1,30);
         Time time3 = new Time(0,30);*/
         
@@ -79,8 +80,8 @@ public class TimeTest {
     }
     @Test
     public void testAddTime2() {
-        Time time2 = new Time(1,30);
-        Time time3 = new Time(0,30);
+        Time time2 = new APTime(1,30);
+        Time time3 = new APTime(0,30);
         
         time2 = time2.addTime(time3);
         
@@ -91,8 +92,8 @@ public class TimeTest {
     */
     @Test
     public void testCompareTo() {
-        Time time1 = new Time(1,0);
-        Time time2 = new Time(1,30);
+        Time time1 = new APTime(1,0);
+        Time time2 = new APTime(1,30);
       /*Time time3 = new Time(1,0);
         Time time4 = new Time(0,30);*/
         
@@ -105,8 +106,8 @@ public class TimeTest {
     } 
     @Test
     public void testCompareTo2() {
-        Time time1 = new Time(1,0);
-        Time time4 = new Time(0,30);
+        Time time1 = new APTime(1,0);
+        Time time4 = new APTime(0,30);
         
         //assertThat(time1.isBefore(time4)).isEqualTo(false);
         assertThat(time1.isBefore(time4)).isFalse();
@@ -114,8 +115,8 @@ public class TimeTest {
     
     @Test
     public void testCompareTo3() {
-        Time time1 = new Time(1,0);
-        Time time2 = new Time(1,30);
+        Time time1 = new APTime(1,0);
+        Time time2 = new APTime(1,30);
         
         //assertThat(time1.isBeforeOrEqual(time2)).isEqualTo(true);
         assertThat(time1.isBeforeOrEqual(time2)).isTrue();
@@ -123,8 +124,8 @@ public class TimeTest {
     
     @Test
     public void testCompareTo4() {
-        Time time1 = new Time(1,0);
-        Time time3 = new Time(1,0);
+        Time time1 = new APTime(1,0);
+        Time time3 = new APTime(1,0);
         
         //assertThat(time1.isBeforeOrEqual(time3)).isEqualTo(true);
         assertThat(time1.isBeforeOrEqual(time3)).isTrue();
@@ -132,8 +133,8 @@ public class TimeTest {
     
     @Test
     public void testCompareTo5() {
-        Time time1 = new Time(1,0);
-        Time time4 = new Time(0,30);
+        Time time1 = new APTime(1,0);
+        Time time4 = new APTime(0,30);
         
         //assertThat(time1.isBeforeOrEqual(time4)).isEqualTo(false);
         assertThat(time1.isBeforeOrEqual(time4)).isFalse();
@@ -143,17 +144,17 @@ public class TimeTest {
     */
     @Test
     public void testUntillTime() {
-        Time time1 = new Time(1,0);
-        Time time2 = new Time(1,30);
+        Time time1 = new APTime(1,0);
+        Time time2 = new APTime(1,30);
       /*Time time3 = new Time(1,0);
         Time time4 = new Time(2,30);
         Time time5 = new Time(2,0);*/
-        Duration refDuration1 = new Duration(0,30);
+        Duration refDuration1 = new APDuration(0,30);
       /*Duration refDuration2 = new Duration(0,0);
         Duration refDuration3 = new Duration(0,90);
         Duration refDuration4 = new Duration(1,0);*/
         
-        Duration assertDuration1 = time1.untill(time2);
+        Duration assertDuration1 = time1.until(time2);
       /*Duration assertDuration2 = time1.untill(time5);
         Duration assertDuration3 = time1.untill(time3);
         Duration assertDuration4 = time1.untill(time4);*/
@@ -167,36 +168,36 @@ public class TimeTest {
     
     @Test
     public void testUntillTime2() {
-        Time time1 = new Time(1,0);
-        Time time5 = new Time(2,0);
+        Time time1 = new APTime(1,0);
+        Time time5 = new APTime(2,0);
         
-        Duration refDuration4 = new Duration(1,0);
+        Duration refDuration4 = new APDuration(1,0);
         
-        Duration assertDuration2 = time1.untill(time5);
+        Duration assertDuration2 = time1.until(time5);
         
         assertThat(assertDuration2.getHours()).isEqualTo(refDuration4.getHours());
     }
     
     @Test
     public void testUntillTime3() {
-        Time time1 = new Time(1,0);
-        Time time3 = new Time(1,0);
+        Time time1 = new APTime(1,0);
+        Time time3 = new APTime(1,0);
         
-        Duration refDuration2 = new Duration(0,0);
+        Duration refDuration2 = new APDuration(0,0);
         
-        Duration assertDuration3 = time1.untill(time3);
+        Duration assertDuration3 = time1.until(time3);
         
         assertThat(assertDuration3.getMinutes()).isEqualTo(refDuration2.getMinutes());
     }
     
     @Test
     public void testUntillTime4() {
-        Time time1 = new Time(1,0);
-        Time time4 = new Time(2,30);
+        Time time1 = new APTime(1,0);
+        Time time4 = new APTime(2,30);
         
-        Duration refDuration3 = new Duration(0,90);
+        Duration refDuration3 = new APDuration(0,90);
         
-        Duration assertDuration4 = time1.untill(time4);
+        Duration assertDuration4 = time1.until(time4);
         
         assertThat(assertDuration4.asMinutes()).isEqualTo(refDuration3.asMinutes());
     }

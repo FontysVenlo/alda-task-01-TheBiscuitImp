@@ -1,15 +1,17 @@
 
 package simpletimeimpl;
 
+import simpletimeapi.Duration;
+
 /**
  *
  * @author lukas
  */
-public class Duration{
+public class APDuration implements simpletimeapi.Duration{
     private int hours;
     private int minutes;
     
-    public Duration ( int pHours, int pMinutes ){
+    public APDuration ( int pHours, int pMinutes ){
         hours = pHours;
         minutes = pMinutes;
         
@@ -20,18 +22,28 @@ public class Duration{
         minutes = pMinutes;
     }
     
+    public APDuration (int pMinutes ){
+        minutes = pMinutes;
+        
+        while (pMinutes>=60){
+            pMinutes -= 60;
+            hours++;
+        }
+        minutes = pMinutes;
+    }
     
-    //@Override
+    
+    @Override
     public int getHours() {
         return hours;
     }
     
-    //@Override
+    @Override
     public int getMinutes() {
         return minutes;
     }
     
-    //@Override
+    @Override
     public int asMinutes() {
         int tempMinutes = 0;
         tempMinutes = minutes + hours *60;
@@ -39,6 +51,7 @@ public class Duration{
     }
     
     
+    @Override
     public Duration plus(Duration otherDuration){
         int temp = otherDuration.getMinutes()+minutes;
         while (temp >= 60){
@@ -48,6 +61,11 @@ public class Duration{
         minutes += temp;
         hours += otherDuration.getHours();
         return this;
+    }
+
+    @Override
+    public int compareTo(Duration otherDuration) {
+        return Integer.compare(this.asMinutes(), otherDuration.asMinutes());
     }
     
     

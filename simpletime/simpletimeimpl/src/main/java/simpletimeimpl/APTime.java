@@ -2,16 +2,20 @@
 package simpletimeimpl;
 //import simpletimeapi.APTime;
 
+import simpletimeapi.Duration;
+import simpletimeapi.Time;
+
+
 /**
  *
  * @author lukas
  */
-public class Time /*implements simpletimeapi.APTime*/{
+public class APTime implements simpletimeapi.Time{
     
     private int hours;
     private int minutes;
     
-    public Time ( int pHours, int pMinutes ){
+    public APTime ( int pHours, int pMinutes ){
         hours = pHours;
         if (pMinutes >= 0){
             minutes = pMinutes;
@@ -22,16 +26,17 @@ public class Time /*implements simpletimeapi.APTime*/{
     }
     
     
-    //@Override
+    @Override
     public int getHours() {
         return hours;
     }
-    //@Override
+    @Override
     public int getMinutes() {
         return minutes;
     }
     
     
+    @Override
     public boolean isBefore(Time pTime) {
         if(this.compareTo(pTime)<0){
             return true;
@@ -40,6 +45,7 @@ public class Time /*implements simpletimeapi.APTime*/{
         }
     }
     
+    @Override
     public boolean isBeforeOrEqual(Time pTime) {
         if(this.compareTo(pTime)<=0){
             return true;
@@ -48,7 +54,8 @@ public class Time /*implements simpletimeapi.APTime*/{
         }
     }
     
-    public Time addTime(Time pTime) {
+    @Override
+    public APTime addTime(Time pTime) {
         hours += pTime.getHours();
         minutes += pTime.getMinutes();
         while (minutes>=60){
@@ -58,7 +65,8 @@ public class Time /*implements simpletimeapi.APTime*/{
         return this;
     }
     
-    public Time addTime(int pMinutes) {
+    @Override
+    public APTime addTime(int pMinutes) {
         while (pMinutes>=60){
             pMinutes -= 60;
             hours++;
@@ -73,23 +81,26 @@ public class Time /*implements simpletimeapi.APTime*/{
     }
     
     
-    //@Override
+    @Override
     public int asMinutes() {
         int tempMinutes = minutes + hours *60;
         return tempMinutes;
     }
     
-    
-    public Duration untill(Time pTime){
+    @Override
+    public Duration until(Time pTime){
         
         int dHours = pTime.getHours() - hours;
         int dMinutes = pTime.getMinutes() - minutes;
-        return new Duration(dHours,dMinutes);
+        return new APDuration(dHours,dMinutes);
     }
     
     
+    @Override
     public int compareTo(Time otherTime){
         return Integer.compare(this.asMinutes(), otherTime.asMinutes());
     }
+
+    
     
 }

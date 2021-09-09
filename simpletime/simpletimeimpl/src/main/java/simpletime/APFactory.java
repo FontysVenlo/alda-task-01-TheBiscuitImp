@@ -7,8 +7,8 @@ import simpletimeapi.AbstractAPFactory;
 import simpletimeapi.Duration;
 import simpletimeapi.Time;
 //TODO adapt imports if required
-//import simpletimeimpl.Time;
-//import simpletimeimpl.Duration;
+import simpletimeimpl.APTime;
+import simpletimeimpl.APDuration;
 
 
 /**
@@ -37,7 +37,7 @@ public class APFactory implements AbstractAPFactory {
     @Override
     public Time createTime( int hours, int minutes ) {
         //TODO
-        return null;//Time(1,1);
+        return new APTime(hours,minutes);
     }
 
     /**
@@ -52,7 +52,7 @@ public class APFactory implements AbstractAPFactory {
     @Override
     public Duration createDuration( int hours, int minutes ) {
         //TODO
-        return null;
+        return new APDuration(hours,minutes);
     }
 
     /**
@@ -64,7 +64,7 @@ public class APFactory implements AbstractAPFactory {
     @Override
     public Duration createDuration( int lengthInMinutes ) {
         //TODO
-        return null;
+        return new APDuration(lengthInMinutes);
     }
 
 }
