@@ -94,7 +94,7 @@ public class DurationTest {
         
         Duration duration1 = new Duration(1,90);
         
-        assertThat(duration1.getMinutes()).isEqualTo(0);
+        assertThat(duration1.getMinutes()).isEqualTo(30);
     }
     
     @Test

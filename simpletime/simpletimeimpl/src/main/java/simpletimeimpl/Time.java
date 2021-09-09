@@ -33,7 +33,7 @@ public class Time /*implements simpletimeapi.APTime*/{
     
     
     public boolean isBefore(Time pTime) {
-        if(this.compareTo(pTime)==1){
+        if(this.compareTo(pTime)<0){
             return true;
         }else{
             return false;
@@ -41,7 +41,7 @@ public class Time /*implements simpletimeapi.APTime*/{
     }
     
     public boolean isBeforeOrEqual(Time pTime) {
-        if(this.compareTo(pTime)>=0){
+        if(this.compareTo(pTime)<=0){
             return true;
         }else{
             return false;

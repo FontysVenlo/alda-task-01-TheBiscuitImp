@@ -23,7 +23,7 @@ public class TimeTest {
         //Time time2 = new Time(0,10);
         //Time time3 = new Time(1,30);
         
-        assertThat(time1.getHours() == 1);
+        assertThat(time1.getHours()).isEqualTo(1);
         //assertThat(time2.getMinutes() == 10);
         //assertThat(time3.asMinutes() == 90);
         
@@ -33,14 +33,14 @@ public class TimeTest {
         
         Time time2 = new Time(0,10);
         
-        assertThat(time2.getMinutes() == 10);
+        assertThat(time2.getMinutes()).isEqualTo(10);
     }
     
     public void testTime3() {
         
         Time time3 = new Time(1,30);
         
-        assertThat(time3.asMinutes() == 90);
+        assertThat(time3.asMinutes()).isEqualTo(90);
     }
     
     /*
@@ -96,7 +96,8 @@ public class TimeTest {
       /*Time time3 = new Time(1,0);
         Time time4 = new Time(0,30);*/
         
-        assertThat(time1.isBefore(time2)).isEqualTo(true);
+        //assertThat(time1.isBefore(time2)).isEqualTo(true);
+        assertThat(time1.isBefore(time2)).isTrue();
       /*assertThat(time1.isBefore(time4)).isEqualTo(false);
         assertThat(time1.isBeforeOrEqual(time2)).isEqualTo(true);
         assertThat(time1.isBeforeOrEqual(time3)).isEqualTo(true);
