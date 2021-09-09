@@ -17,7 +17,7 @@ public interface AbstractAPFactory {
      * @param minutes the number of minutes, might be negative.
      * @return Time object
      */
-    APTime createTime( int hours, int minutes );
+    Time createTime( int hours, int minutes );
 
     /**
      * Factory method to create an object of type Duration. The Duration
@@ -28,7 +28,7 @@ public interface AbstractAPFactory {
      * @param minutes minutes part of the duration.
      * @return Duration object.
      */
-    APDuration createDuration( int hours, int minutes );
+    Duration createDuration( int hours, int minutes );
 
     /**
      * Factory method to create an object of type Duration.
@@ -36,6 +36,6 @@ public interface AbstractAPFactory {
      * @param lengthInMinutes e.g. 105 minutes
      * @return Duration object.
      */
-    APDuration createDuration( int lengthInMinutes );
+    Duration createDuration( int lengthInMinutes );
 
 }
